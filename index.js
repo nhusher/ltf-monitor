@@ -6,8 +6,14 @@ const {
   PORT = 3000
 } = process.env
 
+console.log(`SLACK_SIGNING_SECRET set? ${!!SLACK_SIGNING_SECRET}`)
+console.log(`SLACK_TOKEN set? ${!!SLACK_TOKEN}`)
+console.log(`PORT set? ${!!PORT}`)
+
 const slackEvents = createEventAdapter(SLACK_SIGNING_SECRET)
 const webClient = new WebClient(SLACK_TOKEN)
+
+console.log(slackEvents)
 
 slackEvents.on('message', event => {
   if (event.type === 'team_join') {
