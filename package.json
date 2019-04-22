@@ -1,16 +1,15 @@
 {
   "name": "ltf-monitor",
   "version": "1.0.0",
-  "description": "",
+  "description": "Monitors the Let's Talk Frontend slack team",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "author": "",
+  "author": "nicholas husher <nhusher@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@slack/events-api": "^2.2.0",
-    "@slack/web-api": "^5.0.1",
-    "express": "^4.16.4"
+    "@slack/web-api": "^5.0.1"
   }
 }
