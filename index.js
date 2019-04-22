@@ -13,7 +13,7 @@ console.log(`PORT set? ${!!PORT}`)
 const slackEvents = createEventAdapter(SLACK_SIGNING_SECRET)
 const webClient = new WebClient(SLACK_TOKEN)
 
-console.log(slackEvents)
+console.log(slackEvents.prototype)
 
 slackEvents.on('message', event => {
   if (event.type === 'team_join') {
