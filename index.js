@@ -13,10 +13,6 @@ console.log(`PORT set? ${!!PORT}`)
 const slackEvents = createEventAdapter(SLACK_SIGNING_SECRET)
 const webClient = new WebClient(SLACK_TOKEN)
 
-for (k in slackEvents) {
-  console.log(k, typeof slackEvents[k])
-}
-
 slackEvents.on('message', event => {
   if (event.type === 'team_join') {
     webClient.chat.postMessage({
@@ -24,9 +20,8 @@ slackEvents.on('message', event => {
       channel: 'UG691UQA1'
     })
   }
-})
+});
 
-(async () => {
-  const server = await slackEvents.start(PORT)
+slackEvents.start(PORT).then(server => {
   console.log(`Listening for events on ${server.address().port}`)
-})()
+})
